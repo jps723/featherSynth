@@ -1,9 +1,9 @@
 /*
-  This is a two voice polyphonic synthesizer, each with
+  This is a dual oscillator polyphonic synthesizer, each with
   independent filters and envelopes. The frequency of each
   oscillator is constrained to a key/scale based on user input.
   There are also user inputs for the the probability that the note
-  will play and the tempo.
+  will play, the tempo, and the oscillator types.
 
   This project was designed by Jesse Simpson in collaboration 
   with Bantam Tools.
@@ -159,7 +159,7 @@ void loop() {
 int playOsc1(int freq) {
   waveform1.frequency(freq);
   envelope1.noteOn();
-  envelope1.attack(0);
+  envelope1.attack(5);
   envelope1.hold(0);
   envelope1.decay(1000);
   envelope1.sustain(.5);
@@ -172,7 +172,7 @@ int playOsc2(int freq) {
   //play oscillator2 at half of the indicated frequency (1 octave down)
   waveform2.frequency(freq / 2);
   envelope2.noteOn();
-  envelope2.attack(0);
+  envelope2.attack(5);
   envelope2.hold(0);
   envelope2.decay(1000);
   envelope2.sustain(.5);
@@ -236,7 +236,7 @@ void oscillatorSetup() {
   //Default settings for oscillator 1
   waveform1.begin(WAVEFORM_TRIANGLE);
   //Default envelope1
-  envelope1.attack(0);
+  envelope1.attack(5);
   envelope1.hold(0);
   envelope1.decay(1);
   envelope1.sustain(.5);
@@ -247,7 +247,7 @@ void oscillatorSetup() {
   //Default settings for oscillator 2
   waveform2.begin(WAVEFORM_SAWTOOTH);
   //Default envelope2
-  envelope2.attack(0);
+  envelope2.attack(5);
   envelope2.hold(0);
   envelope2.decay(1);
   envelope2.sustain(.5);
