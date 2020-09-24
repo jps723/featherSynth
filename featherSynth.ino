@@ -1,18 +1,18 @@
 /*
-  This is a two voice polyphonic synthesizer, each with
+  This is a dual oscillator polyphonic synthesizer, each with
   independent filters and envelopes. The frequency of each
   oscillator is constrained to a key/scale based on user input.
   There are also user inputs for the the probability that the note
-  will play and the tempo.
+  will play, the tempo, and the oscillator types.
 
-  This project was designed by Jesse Simpson in collaboration 
+  This project was designed by Jesse Simpson in collaboration
   with Bantam Tools.
   [PROJECT LINK]
 */
 
 // Audio.h refers to the Adafruit fork of the PJRC Audio library.
-// The forked version is required for use with the Adafruit 
-// Feather M4 Express. 
+// The forked version is required for use with the Adafruit
+// Feather M4 Express.
 #include <Audio.h>
 #include "scales.h"
 
@@ -24,7 +24,7 @@
 #define NOTE_A4 69         // MIDI note value for middle A
 #define FREQ_A4 440        // frequency for middle A
 
-//a 2D array to store the notes of our scales in. 
+//a 2D array to store the notes of our scales in.
 //There are 7 scales, with 18 notes each
 int rootScaled[7][18] = {};
 
@@ -85,10 +85,11 @@ void loop() {
   //A function for button handling to change the instrument
   buttonHandler();
   //read our input sensors and store them in variables
-  int rootReading = analogRead(A2);
-  int scaleReading = analogRead(A3);
-  int probabilityReading = analogRead(A4);
-  int bpmReading = analogRead(A5);
+  int bpmReading = analogRead(A2);
+  int rootReading = analogRead(A3);
+  int scaleReading = analogRead(A4);
+  int probabilityReading = analogRead(A5);
+
 
   //result is the BPM we want in 4:4 (quarter notes)
   int masterTempo = map(bpmReading, 0, 1023, 60, 800);
@@ -159,7 +160,7 @@ void loop() {
 int playOsc1(int freq) {
   waveform1.frequency(freq);
   envelope1.noteOn();
-  envelope1.attack(0);
+  envelope1.attack(5);
   envelope1.hold(0);
   envelope1.decay(1000);
   envelope1.sustain(.5);
@@ -172,7 +173,7 @@ int playOsc2(int freq) {
   //play oscillator2 at half of the indicated frequency (1 octave down)
   waveform2.frequency(freq / 2);
   envelope2.noteOn();
-  envelope2.attack(0);
+  envelope2.attack(5);
   envelope2.hold(0);
   envelope2.decay(1000);
   envelope2.sustain(.5);
@@ -236,7 +237,7 @@ void oscillatorSetup() {
   //Default settings for oscillator 1
   waveform1.begin(WAVEFORM_TRIANGLE);
   //Default envelope1
-  envelope1.attack(0);
+  envelope1.attack(5);
   envelope1.hold(0);
   envelope1.decay(1);
   envelope1.sustain(.5);
@@ -247,7 +248,7 @@ void oscillatorSetup() {
   //Default settings for oscillator 2
   waveform2.begin(WAVEFORM_SAWTOOTH);
   //Default envelope2
-  envelope2.attack(0);
+  envelope2.attack(5);
   envelope2.hold(0);
   envelope2.decay(1);
   envelope2.sustain(.5);
