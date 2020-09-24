@@ -5,14 +5,14 @@
   There are also user inputs for the the probability that the note
   will play, the tempo, and the oscillator types.
 
-  This project was designed by Jesse Simpson in collaboration
+  This project was designed by Jesse Simpson in collaboration 
   with Bantam Tools.
   [PROJECT LINK]
 */
 
 // Audio.h refers to the Adafruit fork of the PJRC Audio library.
-// The forked version is required for use with the Adafruit
-// Feather M4 Express.
+// The forked version is required for use with the Adafruit 
+// Feather M4 Express. 
 #include <Audio.h>
 #include "scales.h"
 
@@ -24,7 +24,7 @@
 #define NOTE_A4 69         // MIDI note value for middle A
 #define FREQ_A4 440        // frequency for middle A
 
-//a 2D array to store the notes of our scales in.
+//a 2D array to store the notes of our scales in. 
 //There are 7 scales, with 18 notes each
 int rootScaled[7][18] = {};
 
@@ -85,11 +85,10 @@ void loop() {
   //A function for button handling to change the instrument
   buttonHandler();
   //read our input sensors and store them in variables
-  int bpmReading = analogRead(A2);
-  int rootReading = analogRead(A3);
-  int scaleReading = analogRead(A4);
-  int probabilityReading = analogRead(A5);
-
+  int rootReading = analogRead(A2);
+  int scaleReading = analogRead(A3);
+  int probabilityReading = analogRead(A4);
+  int bpmReading = analogRead(A5);
 
   //result is the BPM we want in 4:4 (quarter notes)
   int masterTempo = map(bpmReading, 0, 1023, 60, 800);
