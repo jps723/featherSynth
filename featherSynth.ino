@@ -88,7 +88,6 @@ void loop() {
   int bpmReading = analogRead(A2);
   int rootReading = analogRead(A3);
   int scaleReading = analogRead(A4);
-  
   int probabilityReading = analogRead(A5);
   
 
