@@ -85,10 +85,12 @@ void loop() {
   //A function for button handling to change the instrument
   buttonHandler();
   //read our input sensors and store them in variables
-  int rootReading = analogRead(A2);
-  int scaleReading = analogRead(A3);
-  int probabilityReading = analogRead(A4);
-  int bpmReading = analogRead(A5);
+  int bpmReading = analogRead(A2);
+  int rootReading = analogRead(A3);
+  int scaleReading = analogRead(A4);
+  
+  int probabilityReading = analogRead(A5);
+  
 
   //result is the BPM we want in 4:4 (quarter notes)
   int masterTempo = map(bpmReading, 0, 1023, 60, 800);
