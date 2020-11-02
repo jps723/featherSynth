@@ -1,6 +1,8 @@
 # Feather Synth Build Notes 9/4/20
 
-A dual-oscillator polyphonic synthesizer project in collaboration with [Bantam Tools](https://www.bantamtools.com/).  
+![The Feather Synth sits on top of a table next to a guitar pedal.  A hand is adjusting a knob on the pedal](https://github.com/jps723/featherSynth/blob/master/images/fullShot.png)
+
+A dual-oscillator polyphonic synthesizer project in collaboration with [Bantam Tools](https://www.bantamtools.com/).  The [project build](https://www.hackster.io/news/create-a-synth-and-sequencer-using-bantam-tools-desktop-cnc-milling-machine-83a0fdb942a3) guide is available on Hackster.
 
 **Design Notes:**
 
@@ -98,3 +100,5 @@ SDFat-Adafruit Fork
 ```
 
 Once all of the dependencies have been installed, and you’ve uploaded a trial sketch, upload the code that you’ve downloaded from the repository and have fun!  
+
+![A close up photo of a hand plugging in an audio cable into the 3.5mm audio jack on the Feather Synth](https://github.com/jps723/featherSynth/blob/master/images/closeup.png)
